@@ -387,10 +387,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2020-11-06 23:00:11 / 修改时间：23:08:20" itemprop="dateCreated datePublished" datetime="2020-11-06T23:00:11+08:00">2020-11-06</time>
+      <time title="创建时间：2020-11-06 23:00:11" itemprop="dateCreated datePublished" datetime="2020-11-06T23:00:11+08:00">2020-11-06</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-11-07 23:19:54" itemprop="dateModified" datetime="2020-11-07T23:19:54+08:00">2020-11-07</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -409,7 +415,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>122</span>
+      <span>302</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -437,7 +443,24 @@
 
 <p>在该界面中，可以使用用户名和密码连接到smb服务器中。</p>
 </li>
+<li><p>如何安装samba服务</p>
+<ul>
+<li><p>首先使用下面命令安装samba软件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install samba</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置samba配置</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[share_local]</span><br><span class="line">        path = /user/shared/</span><br><span class="line">        available = true</span><br><span class="line">        browseable = true</span><br><span class="line">        public = yes</span><br><span class="line">        writable = true</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然后启动smb服务</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart smb.service</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+</li>
 </ol>
+<p>​        </p>
 
       
     </div>
