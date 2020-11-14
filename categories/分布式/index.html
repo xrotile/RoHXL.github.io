@@ -22,23 +22,18 @@
     var CONFIG = {"hostname":"xrotile.github.io","root":"/","scheme":"Gemini","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
   </script>
 
-  <meta name="description" content="Hadoop单机环境配置预置环境 MacBook pro 32G + i7 电脑一台 安装vmware fusion虚拟机 Iterm2 终端  虚拟机环境配置 安装虚拟机  配置静态ip">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Hadoop完全分布式环境配置">
-<meta property="og:url" content="http://xrotile.github.io/2020/10/04/Hadoop%E5%AE%8C%E5%85%A8%E5%88%86%E5%B8%83%E5%BC%8F%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/index.html">
+  <meta name="description" content="RotHXL的技术分享">
+<meta property="og:type" content="website">
+<meta property="og:title" content="RotHXL的博客">
+<meta property="og:url" content="http://xrotile.github.io/categories/%E5%88%86%E5%B8%83%E5%BC%8F/index.html">
 <meta property="og:site_name" content="RotHXL的博客">
-<meta property="og:description" content="Hadoop单机环境配置预置环境 MacBook pro 32G + i7 电脑一台 安装vmware fusion虚拟机 Iterm2 终端  虚拟机环境配置 安装虚拟机  配置静态ip">
+<meta property="og:description" content="RotHXL的技术分享">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-10-04T13:03:34.000Z">
-<meta property="article:modified_time" content="2020-11-10T15:58:22.175Z">
 <meta property="article:author" content="Rotile">
-<meta property="article:tag" content="环境配置">
-<meta property="article:tag" content="Hadoop">
-<meta property="article:tag" content="分布式">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://xrotile.github.io/2020/10/04/Hadoop%E5%AE%8C%E5%85%A8%E5%88%86%E5%B8%83%E5%BC%8F%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">
+<link rel="canonical" href="http://xrotile.github.io/categories/%E5%88%86%E5%B8%83%E5%BC%8F/">
 
 
 <script class="page-configurations">
@@ -46,12 +41,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : true,
+    isPost : false,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>Hadoop完全分布式环境配置 | RotHXL的博客</title>
+  <title>分类: 分布式 | RotHXL的博客</title>
   
 
 
@@ -142,7 +137,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">11</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">12</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -152,7 +147,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">9</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">8</span></a>
 
   </li>
         <li class="menu-item menu-item-schedule">
@@ -177,7 +172,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+    <div class="sidebar-inner sidebar-overview-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -189,7 +184,6 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hadoop%E5%8D%95%E6%9C%BA%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">Hadoop单机环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%84%E7%BD%AE%E7%8E%AF%E5%A2%83"><span class="nav-number">1.1.</span> <span class="nav-text">预置环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="nav-number">1.2.</span> <span class="nav-text">虚拟机环境配置</span></a></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -205,7 +199,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -218,7 +212,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -255,153 +249,54 @@
 </noscript>
 
 
-    <div class="main-inner post posts-expand">
+    <div class="main-inner category posts-collapse">
       
 
       
 
   
-
-
-<div class="post-block">
   
   
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://xrotile.github.io/2020/10/04/Hadoop%E5%AE%8C%E5%85%A8%E5%88%86%E5%B8%83%E5%BC%8F%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/Mickey_Mouse.jpg">
-      <meta itemprop="name" content="Rotile">
-      <meta itemprop="description" content="RotHXL的技术分享">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="RotHXL的博客">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          Hadoop完全分布式环境配置
-        </h1>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-10-04 21:03:34" itemprop="dateCreated datePublished" datetime="2020-10-04T21:03:34+08:00">2020-10-04</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-11-10 23:58:22" itemprop="dateModified" datetime="2020-11-10T23:58:22+08:00">2020-11-10</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" itemprop="url" rel="index"><span itemprop="name">大数据</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span id="busuanzi_value_page_pv"></span>
-    </span>
+  <div class="post-block">
+    <div class="post-content">
+      <div class="collection-title">
+        <h2 class="collection-header">分布式
+          <small>分类</small>
+        </h2>
       </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>79</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
 
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-        <h1 id="Hadoop单机环境配置"><a href="#Hadoop单机环境配置" class="headerlink" title="Hadoop单机环境配置"></a>Hadoop单机环境配置</h1><h2 id="预置环境"><a href="#预置环境" class="headerlink" title="预置环境"></a>预置环境</h2><ul>
-<li>MacBook pro 32G + i7 电脑一台</li>
-<li>安装vmware fusion虚拟机</li>
-<li>Iterm2 终端</li>
-</ul>
-<h2 id="虚拟机环境配置"><a href="#虚拟机环境配置" class="headerlink" title="虚拟机环境配置"></a>虚拟机环境配置</h2><ol>
-<li><p>安装虚拟机</p>
-</li>
-<li><p>配置静态ip</p>
-</li>
-</ol>
-
+      
+    <div class="collection-year">
+      <span class="collection-header">2020</span>
     </div>
 
-    <footer class="post-footer">
-          
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <div class="post-meta-container">
+        <time itemprop="dateCreated"
+              datetime="2020-11-12T00:23:20+08:00"
+              content="2020-11-12">
+          11-12
+        </time>
+      </div>
 
-<div class="post-copyright">
-<ul>
-  <li class="post-copyright-author">
-      <strong>本文作者： </strong>Rotile
-  </li>
-  <li class="post-copyright-link">
-      <strong>本文链接：</strong>
-      <a href="http://xrotile.github.io/2020/10/04/Hadoop%E5%AE%8C%E5%85%A8%E5%88%86%E5%B8%83%E5%BC%8F%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" title="Hadoop完全分布式环境配置">http://xrotile.github.io/2020/10/04/Hadoop完全分布式环境配置/</a>
-  </li>
-  <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
-  </li>
-</ul>
-</div>
+      <div class="post-title">
+          <a class="post-title-link" href="/2020/11/12/TCP%E7%B2%98%E5%8C%85%E5%92%8C%E6%8B%86%E5%8C%85%E9%97%AE%E9%A2%98/" itemprop="url">
+            <span itemprop="name">TCP粘包和拆包问题</span>
+          </a>
+      </div>
 
-          <div class="post-tags">
-              <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" rel="tag"><i class="fa fa-tag"></i> 环境配置</a>
-              <a href="/tags/Hadoop/" rel="tag"><i class="fa fa-tag"></i> Hadoop</a>
-              <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="tag"><i class="fa fa-tag"></i> 分布式</a>
-          </div>
-
-        
-
-          <div class="post-nav">
-            <div class="post-nav-item">
-                <a href="/2020/10/04/Hexo%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE/" rel="prev" title="Hexo博客配置">
-                  <i class="fa fa-chevron-left"></i> Hexo博客配置
-                </a>
-            </div>
-            <div class="post-nav-item">
-                <a href="/2020/11/03/java%E4%B8%AD%E7%9A%84lambda%E7%9A%84%E4%B8%80%E4%BA%9B%E9%99%90%E5%88%B6/" rel="next" title="java中的lambda的一些限制">
-                  java中的lambda的一些限制 <i class="fa fa-chevron-right"></i>
-                </a>
-            </div>
-          </div>
-    </footer>
+      
+    </header>
   </article>
-</div>
 
+    </div>
+  </div>
+  
+  
+  
 
-
+  
 
 
 
@@ -454,13 +349,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">12k</span>
+    <span title="站点总字数">19k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">11 分钟</span>
+    <span title="站点阅读时长">18 分钟</span>
   </span>
 </div>
 <div class="busuanzi-count">
