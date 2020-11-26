@@ -137,17 +137,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">12</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">16</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">4</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">6</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">8</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">11</span></a>
 
   </li>
         <li class="menu-item menu-item-schedule">
@@ -199,20 +199,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -253,6 +253,203 @@
       
 
       
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://xrotile.github.io/2020/11/17/NIO%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/Mickey_Mouse.jpg">
+      <meta itemprop="name" content="Rotile">
+      <meta itemprop="description" content="RotHXL的技术分享">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="RotHXL的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/17/NIO%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">NIO学习笔记</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-11-17 23:09:10" itemprop="dateCreated datePublished" datetime="2020-11-17T23:09:10+08:00">2020-11-17</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-11-19 22:42:04" itemprop="dateModified" datetime="2020-11-19T22:42:04+08:00">2020-11-19</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/RPC/" itemprop="url" rel="index"><span itemprop="name">RPC</span></a>
+        </span>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.6k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="NIO三件套"><a href="#NIO三件套" class="headerlink" title="NIO三件套"></a>NIO三件套</h3><p>NIO三件套：通道、缓冲区、选择器</p>
+<ol>
+<li><p>缓冲区</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">IntBuffer intBuffer = IntBuffer.allocate(<span class="number">10</span>);</span><br><span class="line">logger.info(<span class="string">&quot;intBuffer capacity: &quot;</span> + intBuffer.capacity());</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; intBuffer.capacity() - <span class="number">1</span>; i++) &#123;</span><br><span class="line">    intBuffer.put(i * <span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line">intBuffer.flip();</span><br><span class="line">logger.info(<span class="string">&quot;intBuffer position: &quot;</span> + intBuffer.position() + <span class="string">&quot; limit: &quot;</span> + intBuffer.limit());</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = intBuffer.position(); i &lt; intBuffer.limit(); i++) &#123;</span><br><span class="line">     logger.info(<span class="string">&quot;position &quot;</span> + i + <span class="string">&quot; is:&quot;</span> + intBuffer.get(i));</span><br><span class="line">&#125;</span><br><span class="line">intBuffer.clear();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>selector</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">(<span class="keyword">int</span> port)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">       <span class="keyword">if</span> (port &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">           <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">&quot;port is illegal&quot;</span>);</span><br><span class="line">       &#125;</span><br><span class="line">   </span><br><span class="line">       serverSocketChannel = ServerSocketChannel.open();</span><br><span class="line">       serverSocketChannel.socket().bind(<span class="keyword">new</span> InetSocketAddress(port));</span><br><span class="line">   </span><br><span class="line">       serverSocketChannel.configureBlocking(<span class="keyword">false</span>);</span><br><span class="line">       selector = Selector.open();</span><br><span class="line">       serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);</span><br><span class="line">   </span><br><span class="line">       <span class="keyword">while</span> (shutdown) &#123;</span><br><span class="line">           <span class="keyword">int</span> count = selector.select(<span class="number">3000</span>);</span><br><span class="line">           <span class="keyword">if</span> (count &gt; <span class="number">0</span>) &#123;</span><br><span class="line">               Iterator&lt;SelectionKey&gt; selectionKeys = selector.selectedKeys().iterator();</span><br><span class="line">               <span class="keyword">while</span> (selectionKeys.hasNext()) &#123;</span><br><span class="line">                   SelectionKey selectionKey = selectionKeys.next();</span><br><span class="line">                   selectionKeys.remove();</span><br><span class="line">                   <span class="keyword">if</span> (selectionKey.isAcceptable()) &#123;</span><br><span class="line">                       doAccept(selectionKey);</span><br><span class="line">                   &#125; <span class="keyword">else</span> <span class="keyword">if</span> (selectionKey.isReadable()) &#123;</span><br><span class="line">                       doRead(selectionKey);</span><br><span class="line">                   &#125; </span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       selector.close();</span><br><span class="line">       serverSocketChannel.close();</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p>为什么在selector执行的时候要每次执行一个remove操作呢？</p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/199d9ab466f6">https://www.jianshu.com/p/199d9ab466f6</a></p>
+</li>
+<li><p>通道</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/metoy/p/4223578.html">https://www.cnblogs.com/metoy/p/4223578.html</a> 在断开客户端的连接时，会出现如下的bug，所以在读取数据为-1时，关闭channel</p>
+<p>nio的channel关闭意味着什么？</p>
+<p>socket也会被关闭，但是如果channel注册到一个selector上时，会在下一次selector去释放。</p>
+<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/16659875/does-socketchannel-close-close-the-socket-also">https://stackoverflow.com/questions/16659875/does-socketchannel-close-close-the-socket-also</a></p>
+</li>
+</ol>
+<h3 id="selector-的select空循bug解决"><a href="#selector-的select空循bug解决" class="headerlink" title="selector 的select空循bug解决"></a>selector 的select空循bug解决</h3><p>解决该问题的核心思想，就是将出现空轮询的bug的selector复制到重新新建的selector中。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">select</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        <span class="keyword">long</span> currentTimeNanos = System.nanoTime();</span><br><span class="line">        <span class="keyword">int</span> selectCnt = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">// delayNanos 计算定时队列中第一个任务执行的时间</span></span><br><span class="line">        <span class="keyword">long</span> selectDeadLineNanos = currentTimeNanos + delayNanos(currentTimeNanos);</span><br><span class="line">        <span class="keyword">for</span>(;;) &#123;</span><br><span class="line">            <span class="keyword">long</span> timeoutMillis = (selectDeadLineNanos - currentTimeNanos + <span class="number">500000L</span>) / <span class="number">1000000L</span>;</span><br><span class="line">            <span class="keyword">if</span> (timeoutMillis &lt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">int</span> selectKeys = selector.select(timeoutMillis);</span><br><span class="line">            selectCnt++;</span><br><span class="line">            <span class="keyword">if</span> (selectKeys != <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (System.nanoTime() - currentTimeNanos &gt;= TimeUnit.MILLISECONDS.toNanos(timeoutMillis)) &#123;</span><br><span class="line">                selectCnt = <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (selectCnt &gt;= THRESHOLD_MAX_LOOP) &#123;</span><br><span class="line">                Selector newSelector = Selector.open();</span><br><span class="line">                Set&lt;SelectionKey&gt; keys = selector.keys();</span><br><span class="line">                <span class="keyword">for</span> (SelectionKey key : keys) &#123;</span><br><span class="line">                    key.channel().register(newSelector, key.interestOps());</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">this</span>.selector = newSelector;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://xrotile.github.io/2020/11/17/java%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/Mickey_Mouse.jpg">
+      <meta itemprop="name" content="Rotile">
+      <meta itemprop="description" content="RotHXL的技术分享">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="RotHXL的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/17/java%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">java日常笔记</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-11-17 22:55:20 / 修改时间：23:43:01" itemprop="dateCreated datePublished" datetime="2020-11-17T22:55:20+08:00">2020-11-17</time>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.3k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="java编译和打包时，pom-xml的标准写法"><a href="#java编译和打包时，pom-xml的标准写法" class="headerlink" title="java编译和打包时，pom.xml的标准写法"></a>java编译和打包时，pom.xml的标准写法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">&lt;properties&gt;</span><br><span class="line">       &lt;maven.compiler.source&gt;15&lt;&#x2F;maven.compiler.source&gt;</span><br><span class="line">       &lt;maven.compiler.target&gt;15&lt;&#x2F;maven.compiler.target&gt;</span><br><span class="line">   &lt;&#x2F;properties&gt;</span><br><span class="line"></span><br><span class="line">   &lt;build&gt;</span><br><span class="line">       &lt;plugins&gt;</span><br><span class="line">           &lt;plugin&gt;</span><br><span class="line">               &lt;groupId&gt;org.apache.maven.plugins&lt;&#x2F;groupId&gt;</span><br><span class="line">               &lt;artifactId&gt;maven-compiler-plugin&lt;&#x2F;artifactId&gt;</span><br><span class="line">               &lt;version&gt;3.1&lt;&#x2F;version&gt;</span><br><span class="line">               &lt;configuration&gt;</span><br><span class="line">                   &lt;source&gt;15&lt;&#x2F;source&gt;</span><br><span class="line">                   &lt;target&gt;15&lt;&#x2F;target&gt;</span><br><span class="line">               &lt;&#x2F;configuration&gt;</span><br><span class="line">           &lt;&#x2F;plugin&gt;</span><br><span class="line">           &lt;plugin&gt;</span><br><span class="line">               &lt;artifactId&gt;maven-assembly-plugin&lt;&#x2F;artifactId&gt;</span><br><span class="line">               &lt;configuration&gt;</span><br><span class="line">                   &lt;archive&gt;</span><br><span class="line">                       &lt;manifest&gt;</span><br><span class="line">                           &lt;mainClass&gt;org.example.WorkCount&lt;&#x2F;mainClass&gt;</span><br><span class="line">                       &lt;&#x2F;manifest&gt;</span><br><span class="line">                   &lt;&#x2F;archive&gt;</span><br><span class="line">                   &lt;descriptorRefs&gt;</span><br><span class="line">                       &lt;descriptorRef&gt;jar-with-dependencies&lt;&#x2F;descriptorRef&gt;</span><br><span class="line">                   &lt;&#x2F;descriptorRefs&gt;</span><br><span class="line">               &lt;&#x2F;configuration&gt;</span><br><span class="line">               &lt;executions&gt;</span><br><span class="line">                   &lt;execution&gt;</span><br><span class="line">                       &lt;id&gt;make-assembly&lt;&#x2F;id&gt;</span><br><span class="line">                       &lt;phase&gt;package&lt;&#x2F;phase&gt;</span><br><span class="line">                       &lt;goals&gt;</span><br><span class="line">                           &lt;goal&gt;single&lt;&#x2F;goal&gt;</span><br><span class="line">                       &lt;&#x2F;goals&gt;</span><br><span class="line">                   &lt;&#x2F;execution&gt;</span><br><span class="line">               &lt;&#x2F;executions&gt;</span><br><span class="line">           &lt;&#x2F;plugin&gt;</span><br><span class="line">       &lt;&#x2F;plugins&gt;</span><br><span class="line">   &lt;&#x2F;build&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="java程序自定义log"><a href="#java程序自定义log" class="headerlink" title="java程序自定义log"></a>java程序自定义log</h3><ul>
+<li>对于java util logger而言，可以使用如下的格式</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
     
 
 
@@ -564,6 +761,135 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://xrotile.github.io/2020/11/07/cenos%E4%B8%ADmysql%E7%9A%84%E5%AE%89%E8%A3%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/Mickey_Mouse.jpg">
+      <meta itemprop="name" content="Rotile">
+      <meta itemprop="description" content="RotHXL的技术分享">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="RotHXL的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/07/cenos%E4%B8%ADmysql%E7%9A%84%E5%AE%89%E8%A3%85/" class="post-title-link" itemprop="url">flink窗口和水印的理解</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-11-07 23:36:18" itemprop="dateCreated datePublished" datetime="2020-11-07T23:36:18+08:00">2020-11-07</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-11-27 02:37:21" itemprop="dateModified" datetime="2020-11-27T02:37:21+08:00">2020-11-27</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+        </span>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>852</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Cenos中mysql的安装"><a href="#Cenos中mysql的安装" class="headerlink" title="Cenos中mysql的安装"></a>Cenos中mysql的安装</h1><h2 id="遇到问题"><a href="#遇到问题" class="headerlink" title="遇到问题"></a>遇到问题</h2><ol>
+<li><p>准备在cenos安装mysql的时候，发现虚拟机不能连接到外部的网络？ </p>
+<p>问题原因： 由于网关的改变，导致/etc/sysconfig/network-script中的</p>
+</li>
+</ol>
+<p>选项：</p>
+<p>IPADDR=192.168.2.145<br>GATEWAY=192.168.2.1</p>
+<p>和mac中的/Library/Preferences/VMware Fusion/vmnet8/nat.conf中的gateway内容不一致，从而导致虚拟机连接不上网络。</p>
+<ol start="2">
+<li><p>重新配置完mysql的新密码之后，使用mysql -uroot -p登陆的时候，出现如下的错误</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Access denied for user &#x27;root&#x27;@&#x27;localhost&#x27; (using password: YES)</span><br></pre></td></tr></table></figure>
+
+<p>解决方法：在/etc/my.cnf中加入如下的选项：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">skip-grant-tables</span><br></pre></td></tr></table></figure>
+
+<p>然后使用service mysqld restart重启mysqld服务</p>
+<p>最后使用mysql -u root -p 可以来验证修改密码ok</p>
+</li>
+</ol>
+<h2 id="如何安装Mysql"><a href="#如何安装Mysql" class="headerlink" title="如何安装Mysql"></a>如何安装Mysql</h2><ol>
+<li><p>首先为cenos添加mysql的下载源: </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm</span><br><span class="line">sudo rpm -ivh mysql-community-release-el7-5.noarch.rpm</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用yum install安装mysql</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install mysql-server</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然后启动mysqld进程</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service mysqld restart</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="对mysql做一些基本的配置项"><a href="#对mysql做一些基本的配置项" class="headerlink" title="对mysql做一些基本的配置项"></a>对mysql做一些基本的配置项</h2><ol>
+<li><p>如何修改密码，使用如下的mysql命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root</span><br><span class="line">use mysql</span><br><span class="line">select Host,User,Password from user;</span><br><span class="line">update user set Password&#x3D;&#39;123456&#39; where User&#x3D;&#39;root&#39;;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+
+      
+    </div>
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://xrotile.github.io/2020/11/07/flink%E7%9A%84%E9%83%A8%E7%BD%B2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -797,7 +1123,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-11-14 19:38:14" itemprop="dateModified" datetime="2020-11-14T19:38:14+08:00">2020-11-14</time>
+        <time title="修改时间：2020-11-17 23:09:22" itemprop="dateModified" datetime="2020-11-17T23:09:22+08:00">2020-11-17</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -966,108 +1292,11 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://xrotile.github.io/2020/10/04/Hexo%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/Mickey_Mouse.jpg">
-      <meta itemprop="name" content="Rotile">
-      <meta itemprop="description" content="RotHXL的技术分享">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="RotHXL的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/10/04/Hexo%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">Hexo博客配置</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-10-04 16:33:00" itemprop="dateCreated datePublished" datetime="2020-10-04T16:33:00+08:00">2020-10-04</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-11-03 23:27:31" itemprop="dateModified" datetime="2020-11-03T23:27:31+08:00">2020-11-03</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" itemprop="url" rel="index"><span itemprop="name">环境配置</span></a>
-        </span>
-    </span>
 
   
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>4.3k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>4 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Hexo博客搭建"><a href="#Hexo博客搭建" class="headerlink" title="Hexo博客搭建"></a>Hexo博客搭建</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>​        该博客为了记录Hexo + github的搭建过程，使用Hexo + github搭建的初衷是为了记录自己的学习过程，之前在CSDN记录过一些博客，但是专门写博客太过于正式，所以重新开辟了一个属于自己的空间，以自己比较随意的风格写以后的博客（倒不如说是笔记），同时将笔记以保持在github中，并且通过hexo展示出来。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/10/04/Hexo%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-
-  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
 
 
 
@@ -1120,13 +1349,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">19k</span>
+    <span title="站点总字数">24k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">18 分钟</span>
+    <span title="站点阅读时长">22 分钟</span>
   </span>
 </div>
 <div class="busuanzi-count">
