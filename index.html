@@ -287,7 +287,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2020-12-05 22:31:22 / 修改时间：23:15:35" itemprop="dateCreated datePublished" datetime="2020-12-05T22:31:22+08:00">2020-12-05</time>
+      <time title="创建时间：2020-12-05 22:31:22 / 修改时间：23:16:28" itemprop="dateCreated datePublished" datetime="2020-12-05T22:31:22+08:00">2020-12-05</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -331,36 +331,15 @@
 </ul>
 <h2 id="基本功能的实现"><a href="#基本功能的实现" class="headerlink" title="基本功能的实现"></a>基本功能的实现</h2><ol>
 <li><p>加载驱动类</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">class.forName(<span class="string">&quot;com.mysql.jdbc.Driver&quot;</span>)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>与数据库建立连接</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String url &#x3D; &quot;jdbc:mysql:&#x2F;&#x2F;192.168.2.145&#x2F;test&quot;;</span><br><span class="line">Connection connection &#x3D; DriverManager.getConnection();</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建数据表</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Statement statement = connection.createStatement();</span><br><span class="line">String sql = <span class="string">&quot;create table students (`name` varchar(10), `age` int)&quot;</span>;</span><br><span class="line"><span class="keyword">return</span> statement.execute(sql);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>添加数据表内容</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String sql = <span class="string">&quot;insert into students&quot;</span> + <span class="string">&quot;(name,age) values &quot;</span> +<span class="string">&quot;(?, ?)&quot;</span>;</span><br><span class="line">PreparedStatement statement = connection.prepareStatement(sql);</span><br><span class="line">statement.setString(<span class="number">1</span>, student.getName());</span><br><span class="line">statement.setInt(<span class="number">2</span>, student.getAge());</span><br><span class="line"><span class="keyword">return</span> statement.execute();</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查询数据表的内容</p>
- <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">String sql = <span class="string">&quot;select name, age from students&quot;</span>;</span><br><span class="line">PreparedStatement statement = connection.prepareStatement(sql);</span><br><span class="line">ResultSet resultSet = statement.executeQuery();</span><br><span class="line"><span class="keyword">while</span> (resultSet.next()) &#123;</span><br><span class="line">     System.out.println(resultSet.getString(<span class="number">1</span>) + <span class="string">&quot;, &quot;</span> + resultSet.getInt(<span class="number">2</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>删除数据表格</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String sql = <span class="string">&quot;drop table students&quot;</span>;</span><br><span class="line">Statement statement = connection.createStatement();</span><br><span class="line"><span class="keyword">return</span> statement.execute(sql);</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ol>
-<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><ol>
-<li><p>Exception in thread “main” java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ‘?, ?)’ at line 1</p>
-<p>问题原因：sql 语法不对, insert的写法如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">insert into students (name,age) values (?, ?)</span><br></pre></td></tr></table></figure>
-
-<p>注意：PrepareStatement只用执行 execute() 不能用execute(sql)</p>
-</li>
-</ol>
-
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">class.forName(<span class="string">&quot;com.mysql.jdbc.Driver&quot;</span>)</span><br></pre></td></tr></table></figure></li></ol>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/12/05/Java%E9%80%9A%E8%BF%87mysql-jdbc%E8%AE%BF%E9%97%AEmysql%E6%95%B0%E6%8D%AE%E5%BA%93/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
