@@ -30,7 +30,7 @@
 <meta property="og:description" content="NIO三件套NIO三件套：通道、缓冲区、选择器  缓冲区 1234567891011IntBuffer intBuffer &#x3D; IntBuffer.allocate(10);logger.info(&quot;intBuffer capacity: &quot; + intBuffer.capacity());for (int i &#x3D; 0; i &lt; intBuffer.capacity()">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-11-17T15:09:10.000Z">
-<meta property="article:modified_time" content="2020-11-19T14:42:04.511Z">
+<meta property="article:modified_time" content="2020-12-01T16:04:00.989Z">
 <meta property="article:author" content="Rotile">
 <meta property="article:tag" content="netty">
 <meta property="article:tag" content="nio">
@@ -141,17 +141,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">18</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">20</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">6</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">9</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">13</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">15</span></a>
 
   </li>
         <li class="menu-item menu-item-schedule">
@@ -204,20 +204,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -298,7 +298,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-11-19 22:42:04" itemprop="dateModified" datetime="2020-11-19T22:42:04+08:00">2020-11-19</time>
+        <time title="修改时间：2020-12-02 00:04:00" itemprop="dateModified" datetime="2020-12-02T00:04:00+08:00">2020-12-02</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -347,6 +347,8 @@
 <ol>
 <li><p>缓冲区</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">IntBuffer intBuffer = IntBuffer.allocate(<span class="number">10</span>);</span><br><span class="line">logger.info(<span class="string">&quot;intBuffer capacity: &quot;</span> + intBuffer.capacity());</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; intBuffer.capacity() - <span class="number">1</span>; i++) &#123;</span><br><span class="line">    intBuffer.put(i * <span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line">intBuffer.flip();</span><br><span class="line">logger.info(<span class="string">&quot;intBuffer position: &quot;</span> + intBuffer.position() + <span class="string">&quot; limit: &quot;</span> + intBuffer.limit());</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = intBuffer.position(); i &lt; intBuffer.limit(); i++) &#123;</span><br><span class="line">     logger.info(<span class="string">&quot;position &quot;</span> + i + <span class="string">&quot; is:&quot;</span> + intBuffer.get(i));</span><br><span class="line">&#125;</span><br><span class="line">intBuffer.clear();</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
 </li>
 <li><p>selector</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">(<span class="keyword">int</span> port)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">       <span class="keyword">if</span> (port &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">           <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">&quot;port is illegal&quot;</span>);</span><br><span class="line">       &#125;</span><br><span class="line">   </span><br><span class="line">       serverSocketChannel = ServerSocketChannel.open();</span><br><span class="line">       serverSocketChannel.socket().bind(<span class="keyword">new</span> InetSocketAddress(port));</span><br><span class="line">   </span><br><span class="line">       serverSocketChannel.configureBlocking(<span class="keyword">false</span>);</span><br><span class="line">       selector = Selector.open();</span><br><span class="line">       serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);</span><br><span class="line">   </span><br><span class="line">       <span class="keyword">while</span> (shutdown) &#123;</span><br><span class="line">           <span class="keyword">int</span> count = selector.select(<span class="number">3000</span>);</span><br><span class="line">           <span class="keyword">if</span> (count &gt; <span class="number">0</span>) &#123;</span><br><span class="line">               Iterator&lt;SelectionKey&gt; selectionKeys = selector.selectedKeys().iterator();</span><br><span class="line">               <span class="keyword">while</span> (selectionKeys.hasNext()) &#123;</span><br><span class="line">                   SelectionKey selectionKey = selectionKeys.next();</span><br><span class="line">                   selectionKeys.remove();</span><br><span class="line">                   <span class="keyword">if</span> (selectionKey.isAcceptable()) &#123;</span><br><span class="line">                       doAccept(selectionKey);</span><br><span class="line">                   &#125; <span class="keyword">else</span> <span class="keyword">if</span> (selectionKey.isReadable()) &#123;</span><br><span class="line">                       doRead(selectionKey);</span><br><span class="line">                   &#125; </span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       selector.close();</span><br><span class="line">       serverSocketChannel.close();</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
@@ -462,13 +464,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">26k</span>
+    <span title="站点总字数">28k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">23 分钟</span>
+    <span title="站点阅读时长">25 分钟</span>
   </span>
 </div>
 <div class="busuanzi-count">
