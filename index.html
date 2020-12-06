@@ -287,7 +287,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2020-12-05 22:31:22 / 修改时间：23:16:28" itemprop="dateCreated datePublished" datetime="2020-12-05T22:31:22+08:00">2020-12-05</time>
+      <time title="创建时间：2020-12-05 22:31:22 / 修改时间：23:20:34" itemprop="dateCreated datePublished" datetime="2020-12-05T22:31:22+08:00">2020-12-05</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -307,7 +307,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.3k</span>
+      <span>1.6k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -329,7 +329,12 @@
 <li>基本的功能的实现</li>
 <li>遇到的问题</li>
 </ul>
-<h2 id="基本功能的实现"><a href="#基本功能的实现" class="headerlink" title="基本功能的实现"></a>基本功能的实现</h2><ol>
+<h2 id="基本功能的实现"><a href="#基本功能的实现" class="headerlink" title="基本功能的实现"></a>基本功能的实现</h2><p>导入maven包</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>8.0.22<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<ol>
 <li><p>加载驱动类</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">class.forName(<span class="string">&quot;com.mysql.jdbc.Driver&quot;</span>)</span><br></pre></td></tr></table></figure></li></ol>
           <!--noindex-->
@@ -615,10 +620,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2020-11-27 22:17:36 / 修改时间：23:49:48" itemprop="dateCreated datePublished" datetime="2020-11-27T22:17:36+08:00">2020-11-27</time>
+      <time title="创建时间：2020-11-27 22:17:36" itemprop="dateCreated datePublished" datetime="2020-11-27T22:17:36+08:00">2020-11-27</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-06 22:01:49" itemprop="dateModified" datetime="2020-12-06T22:01:49+08:00">2020-12-06</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -637,14 +648,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>567</span>
+      <span>2.3k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
+      <span>2 分钟</span>
     </span>
 </div>
 
@@ -674,27 +685,14 @@
 </li>
 </ol>
 <p>​     GOBAL GOPATH代表的是全局的，而PROJECT 代表的是当前项目的。</p>
-<h2 id="使用GOLAND如何创建go项目"><a href="#使用GOLAND如何创建go项目" class="headerlink" title="使用GOLAND如何创建go项目"></a>使用GOLAND如何创建go项目</h2><ol>
-<li><p>首先使用File-New-Project创建新的项目</p>
-<img src="/2020/11/27/go%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/image-20201127233347578.png" class>
-</li>
-<li><p>然后在project下面创建三个目录：src/bin/pkg 其中src为工作区，bin为生成文件的存储区，pkg为go编译的缓存区</p>
-<img src="/2020/11/27/go%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/image-20201127233547574.png" class>
-</li>
-<li><p>将src加入到PROJECT GOPATH中</p>
-<img src="/2020/11/27/go%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/image-20201127233919784.png" class>
-</li>
-<li><p>新建HelloWorld.go文件</p>
- <img src="/2020/11/27/go%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/image-20201127234318580.png" class>
-
-<p>在新建文件的选择simple Application</p>
-</li>
-<li><p>配置编译选项：</p>
-<img src="/2020/11/27/go%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/image-20201127234120506.png" class>
-
-</li>
-</ol>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/11/27/go%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1405,13 +1403,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">28k</span>
+    <span title="站点总字数">30k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">25 分钟</span>
+    <span title="站点阅读时长">27 分钟</span>
   </span>
 </div>
 <div class="busuanzi-count">
