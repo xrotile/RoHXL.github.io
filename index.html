@@ -147,7 +147,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">15</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">16</span></a>
 
   </li>
         <li class="menu-item menu-item-schedule">
@@ -199,7 +199,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -253,6 +253,113 @@
       
 
       
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://xrotile.github.io/2020/12/07/go%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%8C%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/Mickey_Mouse.jpg">
+      <meta itemprop="name" content="Rotile">
+      <meta itemprop="description" content="RotHXL的技术分享">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="RotHXL的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/07/go%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%8C%EF%BC%89/" class="post-title-link" itemprop="url">go语言入门基础（二）</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-12-07 23:51:50" itemprop="dateCreated datePublished" datetime="2020-12-07T23:51:50+08:00">2020-12-07</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-08 00:14:18" itemprop="dateModified" datetime="2020-12-08T00:14:18+08:00">2020-12-08</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F/" itemprop="url" rel="index"><span itemprop="name">分布式</span></a>
+        </span>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="简单的例子"><a href="#简单的例子" class="headerlink" title="简单的例子"></a>简单的例子</h2><ol>
+<li><p>简单的单线程爬虫实现···</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;fmt&quot;</span></span><br><span class="line">	<span class="string">&quot;io/ioutil&quot;</span></span><br><span class="line">	<span class="string">&quot;net/http&quot;</span></span><br><span class="line">	<span class="string">&quot;os&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	response, err := http.Get(<span class="string">&quot;https://www.baidu.com/img/flexible/logo/pc/result.png&quot;</span>)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">&quot;fetch url failed&quot;</span>, err)</span><br><span class="line">		os.Exit(<span class="number">1</span>)</span><br><span class="line">	&#125;</span><br><span class="line">	data, _ := ioutil.ReadAll(response.Body)</span><br><span class="line">	file, _ := os.Create(<span class="string">&quot;baidu.png&quot;</span>)</span><br><span class="line">	file.Write(data)</span><br><span class="line">	response.Body.Close()</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>并发拉取url</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;fmt&quot;</span></span><br><span class="line">	<span class="string">&quot;io/ioutil&quot;</span></span><br><span class="line">	<span class="string">&quot;net/http&quot;</span></span><br><span class="line">	<span class="string">&quot;os&quot;</span></span><br><span class="line">	<span class="string">&quot;time&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	ch := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">string</span>)</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">1</span>; i &lt; <span class="built_in">len</span>(os.Args); i++ &#123;</span><br><span class="line">		url := os.Args[i]</span><br><span class="line">		<span class="keyword">go</span> download(url, ch)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> <span class="keyword">range</span> os.Args[<span class="number">1</span>:] &#123;</span><br><span class="line">		fmt.Println(&lt;-ch)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">download</span><span class="params">(url <span class="keyword">string</span>, ch <span class="keyword">chan</span>&lt;- <span class="keyword">string</span>)</span></span>  &#123;</span><br><span class="line">	now := time.Now()</span><br><span class="line">	reps, err := http.Get(url)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		ch &lt;- fmt.Sprintln(<span class="string">&quot;get url:  failed &quot;</span>, err)</span><br><span class="line">	&#125;</span><br><span class="line">	_, err = ioutil.ReadAll(reps.Body)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		ch &lt;- fmt.Sprintln(<span class="string">&quot;get url:  failed &quot;</span>, err)</span><br><span class="line">	&#125;</span><br><span class="line">	now2 := time.Since(now).Seconds()</span><br><span class="line">	ch &lt;- fmt.Sprintln(<span class="string">&quot;download time is &quot;</span>, now2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>问题：</p>
+<ol>
+<li>如果参数传递到多个go 程序中，会出现什么情况</li>
+<li>channel 传递过去是引用传递还是值传递</li>
+<li>为什么channel的参数要写成 ch chan &lt;- string</li>
+</ol>
+</li>
+</ol>
+
+      
+    </div>
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
     
 
 
@@ -1212,140 +1319,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://xrotile.github.io/2020/11/07/cenos%E4%B8%ADmysql%E7%9A%84%E5%AE%89%E8%A3%85/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/Mickey_Mouse.jpg">
-      <meta itemprop="name" content="Rotile">
-      <meta itemprop="description" content="RotHXL的技术分享">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="RotHXL的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/07/cenos%E4%B8%ADmysql%E7%9A%84%E5%AE%89%E8%A3%85/" class="post-title-link" itemprop="url">cenos中mysql的安装</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-11-07 23:36:18" itemprop="dateCreated datePublished" datetime="2020-11-07T23:36:18+08:00">2020-11-07</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-11-27 22:16:44" itemprop="dateModified" datetime="2020-11-27T22:16:44+08:00">2020-11-27</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
-        </span>
-    </span>
-
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>896</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Cenos中mysql的安装"><a href="#Cenos中mysql的安装" class="headerlink" title="Cenos中mysql的安装"></a>Cenos中mysql的安装</h1><h2 id="遇到问题"><a href="#遇到问题" class="headerlink" title="遇到问题"></a>遇到问题</h2><ol>
-<li><p>准备在cenos安装mysql的时候，发现虚拟机不能连接到外部的网络？ </p>
-<p>问题原因： 由于网关的改变，导致/etc/sysconfig/network-script中的</p>
-</li>
-</ol>
-<p>选项：</p>
-<p>IPADDR=192.168.2.145<br>GATEWAY=192.168.2.1</p>
-<p>和mac中的/Library/Preferences/VMware Fusion/vmnet8/nat.conf中的gateway内容不一致，从而导致虚拟机连接不上网络。</p>
-<ol start="2">
-<li><p>重新配置完mysql的新密码之后，使用mysql -uroot -p登陆的时候，出现如下的错误</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Access denied for user &#x27;root&#x27;@&#x27;localhost&#x27; (using password: YES)</span><br></pre></td></tr></table></figure>
-
-<p>解决方法：在/etc/my.cnf中加入如下的选项：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">skip-grant-tables</span><br></pre></td></tr></table></figure>
-
-<p>然后使用service mysqld restart重启mysqld服务</p>
-<p>最后使用mysql -u root -p 可以来验证修改密码ok</p>
-</li>
-</ol>
-<h2 id="如何安装Mysql"><a href="#如何安装Mysql" class="headerlink" title="如何安装Mysql"></a>如何安装Mysql</h2><ol>
-<li><p>首先为cenos添加mysql的下载源: </p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm</span><br><span class="line">sudo rpm -ivh mysql-community-release-el7-5.noarch.rpm</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用yum install安装mysql</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install mysql-server</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>然后启动mysqld进程</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service mysqld restart</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h2 id="对mysql做一些基本的配置项"><a href="#对mysql做一些基本的配置项" class="headerlink" title="对mysql做一些基本的配置项"></a>对mysql做一些基本的配置项</h2><ol>
-<li><p>如何修改密码，使用如下的mysql命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root</span><br><span class="line">use mysql</span><br><span class="line">select Host,User,Password from user;</span><br><span class="line">update user set Password&#x3D;&#39;123456&#39; where User&#x3D;&#39;root&#39;;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>如何使用客户端连接到mysql</p>
-<p>客户端使用的是：</p>
-<img src="/2020/11/07/cenos%E4%B8%ADmysql%E7%9A%84%E5%AE%89%E8%A3%85/image-20201127220746677.png" class>
-
-<p>然后使用客户端连接到服务端的mysql中。</p>
-</li>
-</ol>
-
-      
-    </div>
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
 
   
   <nav class="pagination">
@@ -1403,13 +1376,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">30k</span>
+    <span title="站点总字数">31k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">27 分钟</span>
+    <span title="站点阅读时长">28 分钟</span>
   </span>
 </div>
 <div class="busuanzi-count">
