@@ -22,22 +22,22 @@
     var CONFIG = {"hostname":"xrotile.github.io","root":"/","scheme":"Gemini","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
   </script>
 
-  <meta name="description" content="Mysql查询操作目录 mysql如何新建用户 mysql如何保证新建用户的权限 如何导入mysql的学习表格employee 过程中遇到的问题">
+  <meta name="description" content="redis基本数据结构">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mysql查询操作">
-<meta property="og:url" content="http://xrotile.github.io/2020/11/30/mysql%E6%9F%A5%E8%AF%A2%E6%93%8D%E4%BD%9C/index.html">
+<meta property="og:title" content="redis基本数据结构">
+<meta property="og:url" content="http://xrotile.github.io/2020/12/08/redis%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/index.html">
 <meta property="og:site_name" content="RotHXL的博客">
-<meta property="og:description" content="Mysql查询操作目录 mysql如何新建用户 mysql如何保证新建用户的权限 如何导入mysql的学习表格employee 过程中遇到的问题">
+<meta property="og:description" content="redis基本数据结构">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-11-30T14:34:45.000Z">
-<meta property="article:modified_time" content="2020-12-01T16:24:41.309Z">
+<meta property="article:published_time" content="2020-12-07T16:18:00.000Z">
+<meta property="article:modified_time" content="2020-12-07T16:19:08.858Z">
 <meta property="article:author" content="Rotile">
-<meta property="article:tag" content="mysql">
-<meta property="article:tag" content="数据库">
+<meta property="article:tag" content="redis">
+<meta property="article:tag" content="缓存">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://xrotile.github.io/2020/11/30/mysql%E6%9F%A5%E8%AF%A2%E6%93%8D%E4%BD%9C/">
+<link rel="canonical" href="http://xrotile.github.io/2020/12/08/redis%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
 
 
 <script class="page-configurations">
@@ -50,7 +50,7 @@
   };
 </script>
 
-  <title>mysql查询操作 | RotHXL的博客</title>
+  <title>redis基本数据结构 | RotHXL的博客</title>
   
 
 
@@ -188,7 +188,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Mysql%E6%9F%A5%E8%AF%A2%E6%93%8D%E4%BD%9C"><span class="nav-number">1.</span> <span class="nav-text">Mysql查询操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95"><span class="nav-number">1.1.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql%E5%A6%82%E4%BD%95%E6%96%B0%E5%BB%BA%E7%94%A8%E6%88%B7"><span class="nav-number">1.2.</span> <span class="nav-text">mysql如何新建用户</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E6%96%B0%E5%BB%BA%E7%94%A8%E6%88%B7%E7%9A%84%E6%9D%83%E9%99%90"><span class="nav-number">1.3.</span> <span class="nav-text">mysql如何保证新建用户的权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%AF%BC%E5%85%A5mysql%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%A1%A8%E6%A0%BCemployee"><span class="nav-number">1.4.</span> <span class="nav-text">如何导入mysql的学习表格employee</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql%E6%9F%A5%E8%AF%A2%E6%93%8D%E4%BD%9C%E6%80%BB%E7%BB%93"><span class="nav-number">1.5.</span> <span class="nav-text">mysql查询操作总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">1.6.</span> <span class="nav-text">过程中遇到的问题</span></a></li></ol></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#redis%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-number">1.</span> <span class="nav-text">redis基本数据结构</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -267,7 +267,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://xrotile.github.io/2020/11/30/mysql%E6%9F%A5%E8%AF%A2%E6%93%8D%E4%BD%9C/">
+    <link itemprop="mainEntityOfPage" href="http://xrotile.github.io/2020/12/08/redis%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/Mickey_Mouse.jpg">
@@ -280,7 +280,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          mysql查询操作
+          redis基本数据结构
         </h1>
 
         <div class="post-meta-container">
@@ -290,23 +290,17 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2020-11-30 22:34:45" itemprop="dateCreated datePublished" datetime="2020-11-30T22:34:45+08:00">2020-11-30</time>
+      <time title="创建时间：2020-12-08 00:18:00 / 修改时间：00:19:08" itemprop="dateCreated datePublished" datetime="2020-12-08T00:18:00+08:00">2020-12-08</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-02 00:24:41" itemprop="dateModified" datetime="2020-12-02T00:24:41+08:00">2020-12-02</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+          <a href="/categories/%E7%BC%93%E5%AD%98/" itemprop="url" rel="index"><span itemprop="name">缓存</span></a>
         </span>
     </span>
 
@@ -325,7 +319,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1k</span>
+      <span>11</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -343,57 +337,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="Mysql查询操作"><a href="#Mysql查询操作" class="headerlink" title="Mysql查询操作"></a>Mysql查询操作</h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
-<li>mysql如何新建用户</li>
-<li>mysql如何保证新建用户的权限</li>
-<li>如何导入mysql的学习表格employee</li>
-<li>过程中遇到的问题</li>
-</ul>
-<a id="more"></a>
-
-<h2 id="mysql如何新建用户"><a href="#mysql如何新建用户" class="headerlink" title="mysql如何新建用户"></a>mysql如何新建用户</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">user</span> <span class="string">&#x27;username&#x27;</span>@<span class="string">&#x27;%&#x27;</span> <span class="keyword">identified</span> <span class="keyword">by</span> <span class="string">&#x27;password&#x27;</span>;  </span><br></pre></td></tr></table></figure>
-
-<h2 id="mysql如何保证新建用户的权限"><a href="#mysql如何保证新建用户的权限" class="headerlink" title="mysql如何保证新建用户的权限"></a>mysql如何保证新建用户的权限</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">grant</span> <span class="keyword">all</span> <span class="keyword">privileges</span> <span class="keyword">on</span> *.* <span class="keyword">to</span> <span class="string">&#x27;username&#x27;</span>@<span class="string">&#x27;%&#x27;</span><span class="keyword">identified</span> <span class="keyword">by</span> <span class="string">&#x27;password&#x27;</span>;</span><br></pre></td></tr></table></figure>
-
-<p>在使用创建用户和权限命令之后，使用下列命令去刷新权限</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">flush</span> <span class="keyword">privileges</span>;</span><br></pre></td></tr></table></figure>
-
-<h2 id="如何导入mysql的学习表格employee"><a href="#如何导入mysql的学习表格employee" class="headerlink" title="如何导入mysql的学习表格employee"></a>如何导入mysql的学习表格employee</h2><ol>
-<li>首先下载<a target="_blank" rel="noopener" href="https://github.com/datacharmer/test_db.git">https://github.com/datacharmer/test_db.git</a> employees数据库</li>
-<li>然后通过smb放入到服务器中</li>
-<li>然后执行source <a target="_blank" rel="noopener" href="https://github.com/datacharmer/test_db/blob/master/employees.sql">employees.sql</a></li>
-</ol>
-<h2 id="mysql查询操作总结"><a href="#mysql查询操作总结" class="headerlink" title="mysql查询操作总结"></a>mysql查询操作总结</h2><ol>
-<li><p>普通查询</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> emp_no <span class="keyword">from</span> titles;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查询不重复记录</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">distinct</span> dept_no <span class="keyword">from</span> dept_emp;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>条件查询</p>
-</li>
-</ol>
-<h2 id="过程中遇到的问题"><a href="#过程中遇到的问题" class="headerlink" title="过程中遇到的问题"></a>过程中遇到的问题</h2><ol>
-<li>The MySQL server is running with the –skip-grant-tables option so it cannot execute this statement</li>
-</ol>
-<p>​           问题出现的原因：由于在/etc/my.cnf中设置了skip-grant-tables，导致登陆时，mysql没有修改权限。</p>
-<p>​           修改方法：将/etc/my.cnf中的skip-grant-tables去掉</p>
-<ol start="2">
-<li><p>修改密码一直登陆不上怎么办？有哪些原因？</p>
-<p>如果忘记密码，那么可以在/etc/my.cnf中设置skip-grant-tables选项，然后重启mysqld进行登陆</p>
-<p>密码登陆不上存在原因：</p>
-<ul>
-<li><p>使用的更新密码的命令不对，应该为</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> <span class="keyword">password</span>=<span class="keyword">password</span>(<span class="string">&#x27;root&#x27;</span>) <span class="keyword">where</span> <span class="keyword">user</span>=<span class="string">&#x27;root&#x27;</span>;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在user表中没有host=’localhost’ user=’root’的项</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">user</span> <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> idetified <span class="keyword">by</span> <span class="string">&#x27;root&#x27;</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-</li>
-</ol>
-
+        <h2 id="redis基本数据结构"><a href="#redis基本数据结构" class="headerlink" title="redis基本数据结构"></a>redis基本数据结构</h2>
     </div>
 
     <footer class="post-footer">
@@ -406,7 +350,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://xrotile.github.io/2020/11/30/mysql%E6%9F%A5%E8%AF%A2%E6%93%8D%E4%BD%9C/" title="mysql查询操作">http://xrotile.github.io/2020/11/30/mysql查询操作/</a>
+      <a href="http://xrotile.github.io/2020/12/08/redis%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="redis基本数据结构">http://xrotile.github.io/2020/12/08/redis基本数据结构/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -415,21 +359,21 @@
 </div>
 
           <div class="post-tags">
-              <a href="/tags/mysql/" rel="tag"><i class="fa fa-tag"></i> mysql</a>
-              <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag"><i class="fa fa-tag"></i> 数据库</a>
+              <a href="/tags/redis/" rel="tag"><i class="fa fa-tag"></i> redis</a>
+              <a href="/tags/%E7%BC%93%E5%AD%98/" rel="tag"><i class="fa fa-tag"></i> 缓存</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/11/27/go%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/" rel="prev" title="go语言基础入门">
-                  <i class="fa fa-chevron-left"></i> go语言基础入门
+                <a href="/2020/12/07/go%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%8C%EF%BC%89/" rel="prev" title="go语言入门基础（二）">
+                  <i class="fa fa-chevron-left"></i> go语言入门基础（二）
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/12/04/redis%E5%AE%89%E8%A3%85%E5%92%8C%E5%85%A5%E9%97%A8/" rel="next" title="redis安装和入门">
-                  redis安装和入门 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/12/10/netty%E7%9A%84%E4%B8%80%E4%BA%9B%E7%96%91%E9%97%AE%E7%82%B9/" rel="next" title="netty的一些疑问点">
+                  netty的一些疑问点 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
