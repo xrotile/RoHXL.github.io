@@ -22,22 +22,21 @@
     var CONFIG = {"hostname":"xrotile.github.io","root":"/","scheme":"Gemini","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
   </script>
 
-  <meta name="description" content="目录 基本的功能的实现 遇到的问题  基本功能的实现导入maven包 12345678&lt;dependencies&gt;        &lt;!-- https:&#x2F;&#x2F;mvnrepository.com&#x2F;artifact&#x2F;mysql&#x2F;mysql-connector-java --&gt;        &lt;dependency&gt;            &lt;groupId&gt;">
+  <meta name="description" content="Spring自定义新的配置项xml如何定义新的元素">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java通过mysql-jdbc访问mysql数据库">
-<meta property="og:url" content="http://xrotile.github.io/2020/12/05/Java%E9%80%9A%E8%BF%87mysql-jdbc%E8%AE%BF%E9%97%AEmysql%E6%95%B0%E6%8D%AE%E5%BA%93/index.html">
+<meta property="og:title" content="spring自定义新的处理方式">
+<meta property="og:url" content="http://xrotile.github.io/2021/01/24/spring%E8%87%AA%E5%AE%9A%E4%B9%89%E6%96%B0%E7%9A%84%E5%A4%84%E7%90%86%E6%96%B9%E5%BC%8F/index.html">
 <meta property="og:site_name" content="RotHXL的博客">
-<meta property="og:description" content="目录 基本的功能的实现 遇到的问题  基本功能的实现导入maven包 12345678&lt;dependencies&gt;        &lt;!-- https:&#x2F;&#x2F;mvnrepository.com&#x2F;artifact&#x2F;mysql&#x2F;mysql-connector-java --&gt;        &lt;dependency&gt;            &lt;groupId&gt;">
+<meta property="og:description" content="Spring自定义新的配置项xml如何定义新的元素">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-12-05T14:31:22.000Z">
-<meta property="article:modified_time" content="2020-12-05T15:20:34.515Z">
+<meta property="article:published_time" content="2021-01-24T14:27:06.000Z">
+<meta property="article:modified_time" content="2021-01-24T14:30:20.945Z">
 <meta property="article:author" content="Rotile">
-<meta property="article:tag" content="java">
-<meta property="article:tag" content="mysql">
+<meta property="article:tag" content="spring,dubbo">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://xrotile.github.io/2020/12/05/Java%E9%80%9A%E8%BF%87mysql-jdbc%E8%AE%BF%E9%97%AEmysql%E6%95%B0%E6%8D%AE%E5%BA%93/">
+<link rel="canonical" href="http://xrotile.github.io/2021/01/24/spring%E8%87%AA%E5%AE%9A%E4%B9%89%E6%96%B0%E7%9A%84%E5%A4%84%E7%90%86%E6%96%B9%E5%BC%8F/">
 
 
 <script class="page-configurations">
@@ -50,7 +49,7 @@
   };
 </script>
 
-  <title>Java通过mysql-jdbc访问mysql数据库 | RotHXL的博客</title>
+  <title>spring自定义新的处理方式 | RotHXL的博客</title>
   
 
 
@@ -188,7 +187,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95"><span class="nav-number">1.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-number">2.</span> <span class="nav-text">基本功能的实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">3.</span> <span class="nav-text">遇到的问题</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring%E8%87%AA%E5%AE%9A%E4%B9%89%E6%96%B0%E7%9A%84%E9%85%8D%E7%BD%AE%E9%A1%B9"><span class="nav-number">1.</span> <span class="nav-text">Spring自定义新的配置项</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#xml%E5%A6%82%E4%BD%95%E5%AE%9A%E4%B9%89%E6%96%B0%E7%9A%84%E5%85%83%E7%B4%A0"><span class="nav-number">1.1.</span> <span class="nav-text">xml如何定义新的元素</span></a></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -267,7 +266,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://xrotile.github.io/2020/12/05/Java%E9%80%9A%E8%BF%87mysql-jdbc%E8%AE%BF%E9%97%AEmysql%E6%95%B0%E6%8D%AE%E5%BA%93/">
+    <link itemprop="mainEntityOfPage" href="http://xrotile.github.io/2021/01/24/spring%E8%87%AA%E5%AE%9A%E4%B9%89%E6%96%B0%E7%9A%84%E5%A4%84%E7%90%86%E6%96%B9%E5%BC%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/Mickey_Mouse.jpg">
@@ -280,7 +279,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Java通过mysql-jdbc访问mysql数据库
+          spring自定义新的处理方式
         </h1>
 
         <div class="post-meta-container">
@@ -292,7 +291,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2020-12-05 22:31:22 / 修改时间：23:20:34" itemprop="dateCreated datePublished" datetime="2020-12-05T22:31:22+08:00">2020-12-05</time>
+      <time title="创建时间：2021-01-24 22:27:06 / 修改时间：22:30:20" itemprop="dateCreated datePublished" datetime="2021-01-24T22:27:06+08:00">2021-01-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -300,7 +299,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/mysql/" itemprop="url" rel="index"><span itemprop="name">mysql</span></a>
+          <a href="/categories/spring/" itemprop="url" rel="index"><span itemprop="name">spring</span></a>
         </span>
     </span>
 
@@ -319,7 +318,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.6k</span>
+      <span>25</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -337,49 +336,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
-<li>基本的功能的实现</li>
-<li>遇到的问题</li>
-</ul>
-<h2 id="基本功能的实现"><a href="#基本功能的实现" class="headerlink" title="基本功能的实现"></a>基本功能的实现</h2><p>导入maven包</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>8.0.22<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-
-<ol>
-<li><p>加载驱动类</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">class.forName(<span class="string">&quot;com.mysql.jdbc.Driver&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<a id="more"></a>
-</li>
-<li><p>与数据库建立连接</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String url &#x3D; &quot;jdbc:mysql:&#x2F;&#x2F;192.168.2.145&#x2F;test&quot;;</span><br><span class="line">Connection connection &#x3D; DriverManager.getConnection();</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建数据表</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Statement statement = connection.createStatement();</span><br><span class="line">String sql = <span class="string">&quot;create table students (`name` varchar(10), `age` int)&quot;</span>;</span><br><span class="line"><span class="keyword">return</span> statement.execute(sql);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>添加数据表内容</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String sql = <span class="string">&quot;insert into students&quot;</span> + <span class="string">&quot;(name,age) values &quot;</span> +<span class="string">&quot;(?, ?)&quot;</span>;</span><br><span class="line">PreparedStatement statement = connection.prepareStatement(sql);</span><br><span class="line">statement.setString(<span class="number">1</span>, student.getName());</span><br><span class="line">statement.setInt(<span class="number">2</span>, student.getAge());</span><br><span class="line"><span class="keyword">return</span> statement.execute();</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查询数据表的内容</p>
- <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">String sql = <span class="string">&quot;select name, age from students&quot;</span>;</span><br><span class="line">PreparedStatement statement = connection.prepareStatement(sql);</span><br><span class="line">ResultSet resultSet = statement.executeQuery();</span><br><span class="line"><span class="keyword">while</span> (resultSet.next()) &#123;</span><br><span class="line">     System.out.println(resultSet.getString(<span class="number">1</span>) + <span class="string">&quot;, &quot;</span> + resultSet.getInt(<span class="number">2</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>删除数据表格</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String sql = <span class="string">&quot;drop table students&quot;</span>;</span><br><span class="line">Statement statement = connection.createStatement();</span><br><span class="line"><span class="keyword">return</span> statement.execute(sql);</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ol>
-<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><ol>
-<li><p>Exception in thread “main” java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ‘?, ?)’ at line 1</p>
-<p>问题原因：sql 语法不对, insert的写法如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">insert into students (name,age) values (?, ?)</span><br></pre></td></tr></table></figure>
-
-<p>注意：PrepareStatement只用执行 execute() 不能用execute(sql)</p>
-</li>
-</ol>
-
+        <h1 id="Spring自定义新的配置项"><a href="#Spring自定义新的配置项" class="headerlink" title="Spring自定义新的配置项"></a>Spring自定义新的配置项</h1><h2 id="xml如何定义新的元素"><a href="#xml如何定义新的元素" class="headerlink" title="xml如何定义新的元素"></a>xml如何定义新的元素</h2>
     </div>
 
     <footer class="post-footer">
@@ -392,7 +349,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://xrotile.github.io/2020/12/05/Java%E9%80%9A%E8%BF%87mysql-jdbc%E8%AE%BF%E9%97%AEmysql%E6%95%B0%E6%8D%AE%E5%BA%93/" title="Java通过mysql-jdbc访问mysql数据库">http://xrotile.github.io/2020/12/05/Java通过mysql-jdbc访问mysql数据库/</a>
+      <a href="http://xrotile.github.io/2021/01/24/spring%E8%87%AA%E5%AE%9A%E4%B9%89%E6%96%B0%E7%9A%84%E5%A4%84%E7%90%86%E6%96%B9%E5%BC%8F/" title="spring自定义新的处理方式">http://xrotile.github.io/2021/01/24/spring自定义新的处理方式/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -401,22 +358,18 @@
 </div>
 
           <div class="post-tags">
-              <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
-              <a href="/tags/mysql/" rel="tag"><i class="fa fa-tag"></i> mysql</a>
+              <a href="/tags/spring-dubbo/" rel="tag"><i class="fa fa-tag"></i> spring,dubbo</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/12/04/redis%E5%AE%89%E8%A3%85%E5%92%8C%E5%85%A5%E9%97%A8/" rel="prev" title="redis安装和入门">
-                  <i class="fa fa-chevron-left"></i> redis安装和入门
+                <a href="/2021/01/10/java%E4%B8%AD%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="prev" title="java中日志框架的使用">
+                  <i class="fa fa-chevron-left"></i> java中日志框架的使用
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/12/07/go%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%8C%EF%BC%89/" rel="next" title="go语言入门基础（二）">
-                  go语言入门基础（二） <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
